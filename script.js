@@ -58,11 +58,17 @@ graph.draw({
 	children: [
 		{page: "test1",
 		 children: [
-			{page: "subpage"}
+			{page: "subpage"},
+      {page: "subpage2"}
 		 ]},
 		{page: "test3"},
-		{page: "test5"},
-		{page: "test33"},
+		{page: "test5",
+     children: [{page: "subpage"}]},
+		{page: "test33",
+		 children: [
+			{page: "subpage"},
+      {page: "subpage2"}
+		 ]},
 		{page: "test22"}
 		]},
 	100, 100, 100, 100);
