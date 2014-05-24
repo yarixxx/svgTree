@@ -34,19 +34,31 @@ function Graph() {
 		newNode.appendChild(textNode);
 		return newNode;
 	}
+
+  this.levels = {};
 	
 	this.addNode = function(parentX, parentY, x, y, text) {
 		this.graph.appendChild(createLink(parentX, parentY, x, y));
 		this.graph.appendChild(createNode(x-30, y, text));
 	}
 	
-	this.draw = function(json, startX, startY, x, y) {
-		this.addNode(startX, startY, x, y, json.page);
-		var newX = x; var newY = y + 100;
-		if (json.children) {
+	this.draw = function(json, startX, startY, level) {
+    debugger;
+    var currentLevel = this.levels["l" + level];
+    var nodeX = 100;
+    var nodeY = level * 100;
+    if (currentLevel) {
+      nodeX = currentLevel[currentLevel.length-1] + 170;
+      this.levels["l" + level].push(nodeX);
+    } else {
+      this.levels["l" + level] = [];
+      this.levels["l" + level].push(100);
+    }
+
+		this.addNode(startX, startY, nodeX, nodeY, json.page);
+  	if (json.children) {
 			for (var i = 0; i < json.children.length; i++) {
-				this.draw(json.children[i], x+10, y+30, newX, newY);
-				newX += 170;
+				this.draw(json.children[i], nodeX+10, nodeY+30, level + 1);
 			}
 		}
 	}
@@ -63,12 +75,13 @@ graph.draw({
 		 ]},
 		{page: "test3"},
 		{page: "test5",
-     children: [{page: "subpage"}]},
+     children: [{page: "subpage"},{page: "subpage2"}]},
 		{page: "test33",
 		 children: [
 			{page: "subpage"},
-      {page: "subpage2"}
+      {page: "subpage2"},
+      {page: "subpage3"}
 		 ]},
 		{page: "test22"}
 		]},
-	100, 100, 100, 100);
+	100, 100, 1);
