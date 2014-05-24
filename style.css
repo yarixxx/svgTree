@@ -1,0 +1,10 @@
+.node {
+	fill:none;
+	stroke:#555;
+	stroke-width:2;
+}
+
+.connection {
+	stroke:#555;
+	stroke-width:2;
+}
