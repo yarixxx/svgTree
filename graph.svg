@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="style.css" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+	<defs>
+		<rect id="node" class="node" width="150" height="30" rx="10" ry="10" />
+		<g id="graph">
+			<!--use x="100" xlink:href="#node" />
+			<text y="20" x="110">http://test.com/</text>
+			
+			<line class="connection" x1="115" y1="30" x2="115" y2="60" />
+			<use y="60" xlink:href="#node" />
+			<text y="80" x="10">/test</text>
+			
+			<line class="connection" x1="215" y1="30" x2="215" y2="60" />
+			<use y="60" x="200" xlink:href="#node" />
+			<text y="80" x="210">/test2</text-->
+		</g>		
+	</defs>
+	
+	<use x="20" y="30" xlink:href="#graph" />
+	
+	<script xlink:href="script.js"></script>
+</svg>
